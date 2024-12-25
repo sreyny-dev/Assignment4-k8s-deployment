@@ -11,7 +11,8 @@ def hello():
     pod_name = os.getenv("POD_NAME", "unknown")
     pod_ip = os.getenv("POD_IP", "unknown")
     node_name = os.getenv("NODE_NAME", "unknown")
-    return f"Hello from {pod_name}, {pod_ip}, on node {node_name}"
+    message = f"Hello from {pod_name}, {pod_ip}, on node {node_name}"
+    return jsonify(message=message)
 
 @app.route('/chat/<username>', methods=['GET'])
 def greet_with_info(username):
